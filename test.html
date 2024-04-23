@@ -1,0 +1,1995 @@
+<form
+	id="job-application-form"
+	class="mx-auto max-w-650"
+	data-controller="careersite--form careersite--messenger-token"
+	data-careersite--messenger-token-candidate-endpoint-value="/candidates"
+	data-careersite--form-form-content-wrapper-class="cursor-not-allowed opacity-50"
+	data-careersite--form-form-class="pointer-events-none"
+	data-careersite--form-qualifying-questions-wrapper-class="mb-12 border-black bg-gradient-qualifying-questions shadow-qualifying-questions"
+	data-careersite--form-qualifying-questions-message-wrapper-class="hidden"
+	data-remote="true"
+	data-turbo-frame="_top"
+	action="https://career.airahome.com/applications"
+	accept-charset="UTF-8"
+	method="post"
+>
+	<input
+		type="f"
+		name="authenticity_token"
+		value="wSnlA6ineF8HbAOJ2f9eUsWKjX0HQ2EZw/wrWSLZdUXm/a1E6G8yidktbJbJBbBzZBoVpM0aXonrPb+qV5JFkg=="
+		autocomplete="off"
+	/>
+
+	<input
+		type=""
+		name=""
+		id=""
+		data-careersite--messenger-token-target="tokenInput"
+		autocomplete="off"
+		value=""
+	/>
+
+	<input
+		data-careersite--form-target="referrer"
+		autocomplete="off"
+		type="hidden"
+		name="candidate[referrer]"
+		id="candidate_referrer"
+	/>
+	<input
+		data-careersite--form-target="linkedinUid"
+		autocomplete="off"
+		type="hidden"
+		name="candidate[linkedin_uid]"
+		id="candidate_linkedin_uid"
+	/>
+	<input
+		data-careersite--form-target="linkedinUrl"
+		autocomplete="off"
+		type="hidden"
+		name="candidate[linkedin_url]"
+		id="candidate_linkedin_url"
+	/>
+	<input
+		data-careersite--form-target="linkedinProfile"
+		autocomplete="off"
+		type="hidden"
+		name="candidate[linkedin_profile]"
+		id="candidate_linkedin_profile"
+	/>
+	<input
+		data-careersite--form-target="facebookId"
+		autocomplete="off"
+		type="hidden"
+		name="candidate[facebook_id]"
+		id="candidate_facebook_id"
+	/>
+	<input
+		data-careersite--form-target="socialImageUrl"
+		autocomplete="off"
+		type="hidden"
+		value=""
+		name="candidate[social_image_url]"
+		id="candidate_social_image_url"
+	/>
+	<div
+		data-careersite--form-target="formContentWrapper"
+		class="ease-out duration-200 transition-opacity"
+	>
+		<div data-careersite--form-target="formContent">
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1546755"
+					name="candidate[answers_attributes][0][question_id]"
+					id="candidate_answers_attributes_0_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843951"
+					name="candidate[answers_attributes][0][picked_question_id]"
+					id="candidate_answers_attributes_0_picked_question_id"
+				/>
+
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start"
+					data-controller="forms--inputs--text tooltip"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_answers_attributes_0_text"
+						>What sparked your interest in this role and Aira?<sup
+							class="ml-1 font-normal opacity-75"
+							>*</sup
+						></label
+					>
+
+					<textarea
+						required="required"
+						class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 py-6 resize-y"
+						data-controller="questions--text"
+						data-questions--text-type-value="Question::Text"
+						data-questions--text-unsupported-song-link-string-value="Unsupported song link"
+						data-action="questions--text#handleInput"
+						placeholder="Type an answer…"
+						rows="3"
+						name="candidate[answers_attributes][0][text]"
+						id="candidate_answers_attributes_0_text"
+					></textarea>
+
+					<div
+						class="flex flex-wrap items-center hidden mt-2"
+						data-forms--inputs--text-target="suggestionElementContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 inline-block currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span class="ml-1">
+							Did you mean
+							<button
+								type="button"
+								class="underline hover:opacity-animated"
+								data-forms--inputs--text-target="suggestionElement"
+								data-action="click->forms--inputs--text#useSuggestedEmail"
+							></button>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1624958"
+					name="candidate[answers_attributes][1][question_id]"
+					id="candidate_answers_attributes_1_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843952"
+					name="candidate[answers_attributes][1][picked_question_id]"
+					id="candidate_answers_attributes_1_picked_question_id"
+				/>
+
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start"
+					data-controller="forms--inputs--text tooltip"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_answers_attributes_1_text"
+						>Please share the link to your LinkedIn profile or portfolio.<sup
+							class="ml-1 font-normal opacity-75"
+							>*</sup
+						></label
+					>
+
+					<textarea
+						required="required"
+						class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 py-6 resize-y"
+						data-controller="questions--text"
+						data-questions--text-type-value="Question::Text"
+						data-questions--text-unsupported-song-link-string-value="Unsupported song link"
+						data-action="questions--text#handleInput"
+						placeholder="Type an answer…"
+						rows="3"
+						name="candidate[answers_attributes][1][text]"
+						id="candidate_answers_attributes_1_text"
+					></textarea>
+
+					<div
+						class="flex flex-wrap items-center hidden mt-2"
+						data-forms--inputs--text-target="suggestionElementContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 inline-block currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span class="ml-1">
+							Did you mean
+							<button
+								type="button"
+								class="underline hover:opacity-animated"
+								data-forms--inputs--text-target="suggestionElement"
+								data-action="click->forms--inputs--text#useSuggestedEmail"
+							></button>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1347882"
+					name="candidate[answers_attributes][2][question_id]"
+					id="candidate_answers_attributes_2_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843953"
+					name="candidate[answers_attributes][2][picked_question_id]"
+					id="candidate_answers_attributes_2_picked_question_id"
+				/>
+
+				<fieldset>
+					<legend
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					>
+						What is your current legal status regarding your eligibility to work
+						in Sweden?<sup class="ml-1 font-normal opacity-75">*</sup>
+					</legend>
+
+					<div
+						class="flex flex-wrap text-gray-800 -mb-2 flex-col"
+						data-controller="forms--inputs--choice"
+					>
+						<div
+							class="choice-input-wrapper max-w-full mb-2 focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								type="radio"
+								value="1"
+								name="candidate[answers_attributes][2][choice]"
+								id="candidate_answers_attributes_2_choice_1"
+							/>
+							<label
+								class="choice-input-wrapper__label text-gray-800"
+								for="candidate_answers_attributes_2_choice_1"
+								>Permanent residency permit / Swedish citizenship</label
+							>
+						</div>
+						<div
+							class="choice-input-wrapper max-w-full mb-2 focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								type="radio"
+								value="2"
+								name="candidate[answers_attributes][2][choice]"
+								id="candidate_answers_attributes_2_choice_2"
+							/>
+							<label
+								class="choice-input-wrapper__label text-gray-800"
+								for="candidate_answers_attributes_2_choice_2"
+								>EU citizenship</label
+							>
+						</div>
+						<div
+							class="choice-input-wrapper max-w-full mb-2 focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								type="radio"
+								value="3"
+								name="candidate[answers_attributes][2][choice]"
+								id="candidate_answers_attributes_2_choice_3"
+							/>
+							<label
+								class="choice-input-wrapper__label text-gray-800"
+								for="candidate_answers_attributes_2_choice_3"
+								>Temporary residency permit</label
+							>
+						</div>
+						<div
+							class="choice-input-wrapper max-w-full mb-2 focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								type="radio"
+								value="4"
+								name="candidate[answers_attributes][2][choice]"
+								id="candidate_answers_attributes_2_choice_4"
+							/>
+							<label
+								class="choice-input-wrapper__label text-gray-800"
+								for="candidate_answers_attributes_2_choice_4"
+								>I do not have a residency permit</label
+							>
+						</div>
+						<div
+							class="choice-input-wrapper max-w-full mb-2 focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								type="radio"
+								value="5"
+								name="candidate[answers_attributes][2][choice]"
+								id="candidate_answers_attributes_2_choice_5"
+							/>
+							<label
+								class="choice-input-wrapper__label text-gray-800"
+								for="candidate_answers_attributes_2_choice_5"
+								>Other</label
+							>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1533692"
+					name="candidate[answers_attributes][3][question_id]"
+					id="candidate_answers_attributes_3_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843954"
+					name="candidate[answers_attributes][3][picked_question_id]"
+					id="candidate_answers_attributes_3_picked_question_id"
+				/>
+
+				<link
+					rel="preload"
+					href="https://assets.teamtailor-cdn.com/assets/packs/js/rangeslider-d82933536d8f5daa4d2c.chunk.js"
+					as="script"
+					type="text/javascript"
+				/>
+				<link
+					rel="preload"
+					href="https://assets.teamtailor-cdn.com/assets/packs/css/9664-08e57c50.css"
+					as="style"
+					type="text/css"
+				/>
+
+				<label
+					class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					for="candidate_answers_attributes_3_range"
+					>How long do you work with software development?<sup
+						class="ml-1 font-normal opacity-75"
+						>*</sup
+					></label
+				>
+
+				<div
+					class="flex flex-col items-center w-full border-2 border-white px-4 py-4 text-gray-800 bg-white rounded-md sm:px-12 sm:py-8 shadow-form transform hover:shadow-form-strong hover:-translate-y-px focus-within:shadow-form-strong focus-within:-translate-y-px ring-inset focus-within:ring-2 focus-within:ring-gray-800"
+					data-controller="forms--inputs--range"
+					data-forms--inputs--range-changed-value="false"
+					data-forms--inputs--range-has-initial-value="false"
+					data-forms--inputs--range-validation-error-value="You must select a value"
+					data-forms--inputs--range-no-value-selected-value="No value selected"
+				>
+					<div
+						class="font-bold leading-none text-[48px]"
+						data-forms--inputs--range-target="value"
+					>
+						-
+					</div>
+					<div class="mb-2 text-md">years</div>
+					<input
+						value="0"
+						min="0"
+						max="10"
+						class="w-full h-8"
+						required="required"
+						data-unit="years"
+						data-forms--inputs--range-target="slider"
+						type="range"
+						name="candidate[answers_attributes][3][range]"
+						id="candidate_answers_attributes_3_range"
+						step="1"
+						aria-valuetext="0 years"
+						style="
+							position: absolute;
+							width: 1px;
+							height: 100%;
+							overflow: hidden;
+							opacity: 0;
+							top: 0px;
+						"
+					/>
+					<div
+						class="rangeslider rangeslider__horizontal animate__animated animate__fadeIn animate__faster"
+						id="js-rangeSlider-5792a523-1686-6284-e459-624eba65ad71"
+						style="visibility: visible"
+					>
+						<div
+							class="rangeslider__fill__bg rangeslider__fill__bg__horizontal"
+						></div>
+						<div
+							class="rangeslider__fill rangeslider__fill__horizontal"
+							style="width: 16.5px"
+						></div>
+						<div
+							class="rangeslider__handle rangeslider__handle__horizontal"
+							style="transform: translateX(0px)"
+						></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1533699"
+					name="candidate[answers_attributes][4][question_id]"
+					id="candidate_answers_attributes_4_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843955"
+					name="candidate[answers_attributes][4][picked_question_id]"
+					id="candidate_answers_attributes_4_picked_question_id"
+				/>
+
+				<fieldset>
+					<legend
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					>
+						Do you have experience working with IoT?<sup
+							class="ml-1 font-normal opacity-75"
+							>*</sup
+						>
+					</legend>
+
+					<div
+						class="flex text-gray-800"
+						data-controller="forms--inputs--boolean"
+					>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707160-true"
+								data-forms--inputs--boolean-target="yes"
+								type="radio"
+								value="true"
+								name="candidate[answers_attributes][4][boolean]"
+							/>
+							<label
+								for="boolean-1707160-true"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								Yes
+							</label>
+						</div>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707160-false"
+								type="radio"
+								value="false"
+								name="candidate[answers_attributes][4][boolean]"
+							/>
+							<label
+								for="boolean-1707160-false"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								No
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1533706"
+					name="candidate[answers_attributes][5][question_id]"
+					id="candidate_answers_attributes_5_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843956"
+					name="candidate[answers_attributes][5][picked_question_id]"
+					id="candidate_answers_attributes_5_picked_question_id"
+				/>
+
+				<fieldset>
+					<legend
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					>
+						Do you have experience with Angular?<sup
+							class="ml-1 font-normal opacity-75"
+							>*</sup
+						>
+					</legend>
+
+					<div
+						class="flex text-gray-800"
+						data-controller="forms--inputs--boolean"
+					>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707180-true"
+								data-forms--inputs--boolean-target="yes"
+								type="radio"
+								value="true"
+								name="candidate[answers_attributes][5][boolean]"
+							/>
+							<label
+								for="boolean-1707180-true"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								Yes
+							</label>
+						</div>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707180-false"
+								type="radio"
+								value="false"
+								name="candidate[answers_attributes][5][boolean]"
+							/>
+							<label
+								for="boolean-1707180-false"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								No
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1533689"
+					name="candidate[answers_attributes][6][question_id]"
+					id="candidate_answers_attributes_6_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="20843957"
+					name="candidate[answers_attributes][6][picked_question_id]"
+					id="candidate_answers_attributes_6_picked_question_id"
+				/>
+
+				<fieldset>
+					<legend
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					>
+						Do you have experience working with Java?<sup
+							class="ml-1 font-normal opacity-75"
+							>*</sup
+						>
+					</legend>
+
+					<div
+						class="flex text-gray-800"
+						data-controller="forms--inputs--boolean"
+					>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707200-true"
+								data-forms--inputs--boolean-target="yes"
+								type="radio"
+								value="true"
+								name="candidate[answers_attributes][6][boolean]"
+							/>
+							<label
+								for="boolean-1707200-true"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								Yes
+							</label>
+						</div>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707200-false"
+								type="radio"
+								value="false"
+								name="candidate[answers_attributes][6][boolean]"
+							/>
+							<label
+								for="boolean-1707200-false"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								No
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="mb-12">
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="1651291"
+					name="candidate[answers_attributes][7][question_id]"
+					id="candidate_answers_attributes_7_question_id"
+				/>
+				<input
+					autocomplete="off"
+					type="hidden"
+					value="21154482"
+					name="candidate[answers_attributes][7][picked_question_id]"
+					id="candidate_answers_attributes_7_picked_question_id"
+				/>
+
+				<fieldset>
+					<legend class="font-medium sm:w-auto block leading-light text-xl">
+						We offer a hybrid work environment with a minimum presence of 3 days
+						per week at the office. Does this arrangement align with your
+						preferences and work style?<sup class="ml-1 font-normal opacity-75"
+							>*</sup
+						>
+						<p class="mb-1 opacity-90 text-base font-normal">
+							Our office is located on Norra Stationsgatan 93 in Stockholm
+							(Sankt Eriksplan and Odenplan are the closest subway stations).
+						</p>
+					</legend>
+
+					<div
+						class="flex text-gray-800"
+						data-controller="forms--inputs--boolean"
+					>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707220-true"
+								data-forms--inputs--boolean-target="yes"
+								type="radio"
+								value="true"
+								name="candidate[answers_attributes][7][boolean]"
+							/>
+							<label
+								for="boolean-1707220-true"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								Yes
+							</label>
+						</div>
+						<div
+							class="choice-input-wrapper focus-within:ring-2 focus-within:ring-gray-800"
+						>
+							<input
+								required="required"
+								class="choice-input-wrapper__input form-radio text-current focus:ring-transparent"
+								id="boolean-1707220-false"
+								type="radio"
+								value="false"
+								name="candidate[answers_attributes][7][boolean]"
+							/>
+							<label
+								for="boolean-1707220-false"
+								class="text-gray-800 choice-input-wrapper__label"
+							>
+								No
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="flex flex-col justify-center">
+				<h2
+					class="my-6 text-3xl text-center lined-background lined-background--company"
+				>
+					<span class="lined-background__text"> Personal information </span>
+				</h2>
+				<div
+					class="rounded-md shadow-form py-6 mb-6 w-full bg-white flex flex-col items-center"
+					data-careersite--form-target="socialButtonContainer"
+				>
+					<div
+						class="grid items-end grid-flow-row -mb-2 sm:grid-flow-col auto-cols-max gap-y-4 sm:gap-x-4 md:gap-x-6 sm:mb-auto"
+					>
+						<div
+							data-controller="careersite--facebook-apply"
+							data-careersite--facebook-apply-oauth-url-value="https://tt.teamtailor.com/auth/facebook_apply?company=heatlyab&amp;job_id=3472682"
+						>
+							<div class="pb-2 sm:pb-0">
+								<link
+									rel="preload"
+									href="https://assets.teamtailor-cdn.com/assets/packs/css/947-22a74c1a.css"
+									as="style"
+									type="text/css"
+								/>
+								<button
+									type="button"
+									lang="en"
+									class="facebook-button focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-company-secondary-bg social-button-new gap-x-[6px]"
+									data-controller="common--social-button"
+									data-action="click->careersite--facebook-apply#facebookOauthClicked"
+								>
+									<svg
+										class="svg-inline--fa fa-square-facebook text-[22px]"
+										aria-hidden="true"
+										focusable="false"
+										data-prefix="fab"
+										data-icon="square-facebook"
+										role="img"
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 448 512"
+										data-fa-i2svg=""
+									>
+										<path
+											fill="currentColor"
+											d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"
+										></path>
+									</svg>
+
+									Apply with Facebook
+								</button>
+							</div>
+						</div>
+						<div
+							class="false"
+							data-controller="careersite--linkedin-apply"
+							data-careersite--linkedin-apply-oauth-url-value="https://tt.teamtailor.com/auth/linkedin_apply?company=heatlyab&amp;job_id=3472682"
+						>
+							<div class="flex flex-col justify-end max-w-[200px]">
+								<script
+									type="text/javascript"
+									src="https://platform.linkedin.com/xdoor/scripts/in.js"
+									data-cookie-type="marketing"
+								>
+									api_key: 77e89g91w6k5od
+									extensions:AwliWidget@https://www.linkedin.com/talentwidgets/extensions/apply-with-linkedin-widget-v3
+								</script>
+								<span
+									class="IN-widget"
+									data-lnkd-debug='<script type="IN/AwliWidget+init" data-mode="BUTTON_DATA" data-integration-context="urn:li:organization:93205887" data-company-job-code="3472682" data-callback-method="applyWithLinkedInCallback"></script>'
+									style="
+										display: inline-block;
+										line-height: 1;
+										vertical-align: bottom;
+										padding: 0px;
+										margin: 0px;
+										text-indent: 0px;
+									"
+									><iframe
+										id='{"xdOrigin":"https://career.airahome.com","xdChannel":"4346bb37-f6db-4762-bbb2-23f1e4592453","framework":"@linkedin/xdoor-sdk","version":"0.1.176","debug":false}'
+										name='{"xdOrigin":"https://career.airahome.com","xdChannel":"4346bb37-f6db-4762-bbb2-23f1e4592453","framework":"@linkedin/xdoor-sdk","version":"0.1.176","debug":false}'
+										src="about:blank"
+										class="IN-widget IN-widget--iframe"
+										scrolling="no"
+										allowtransparency="true"
+										frameborder="0"
+										border="0"
+										width="188"
+										height="0"
+										title="LinkedIn Embedded Content"
+										style="vertical-align: bottom"
+									></iframe
+								></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<img
+					class="hidden self-center mb-10 rounded-full w-30 h-30 shadow-form-border-button-hover shadow-form-border-button"
+					data-careersite--form-target="profileImage"
+				/>
+				<div
+					class="hidden flex flex-col self-center mb-10 md:flex-row"
+					data-careersite--form-target="connectedMessage"
+				>
+					<div class="flex">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 mr-2 currentColor"
+						>
+							<path
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span data-careersite--form-target="connectedMessageText"></span>
+					</div>
+					<div
+						class="hidden mt-2 text-center md:ml-2 md:mt-0"
+						data-careersite--form-target="summaryModal"
+					>
+						<div
+							data-controller="common--modal"
+							data-careersite--form-target="previewSummary"
+							style=""
+						>
+							<div data-common--modal-target="linkContainer">
+								<button type="button" class="underline bg-transparent">
+									Preview summary.
+								</button>
+							</div>
+
+							<template data-common--modal-target="template">
+								<div
+									class="fixed top-0 left-0 items-center justify-center w-full h-full transition-opacity duration-200 bg-black bg-opacity-50 modal z-modal backdrop-blur-md hidden"
+								>
+									<div
+										class="z-modal overflow-y-auto bg-white max-h-screen h-full sm:h-auto sm:max-h-[80vh] sm:mx-4 max-w-920 w-full lg:min-w-screen-md sm:rounded shadow-form-strong"
+									>
+										<div
+											class="w-full h-full absolute top-0 left-0 right-0 bottom-0"
+										></div>
+
+										<div class="relative w-full h-full px-6 py-16 lg:px-25">
+											<button
+												type="button"
+												title="Close modal"
+												class="absolute top-0 right-0 leading-none text-3xl px-4 pb-2 rounded-full text-gray-800 cursor-pointer hover:opacity-75 focus-visible-company"
+												data-close="true"
+											>
+												<i class="fal fa-xmark"></i>
+											</button>
+											<div class="modal-content default-style"></div>
+										</div>
+									</div>
+								</div>
+							</template>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-col sm:flex-row">
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start mr-0 sm:mr-2 mb-6"
+					data-controller="forms--inputs--text tooltip"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_first_name"
+						>First name<sup class="ml-1 font-normal opacity-75">*</sup></label
+					>
+
+					<input
+						required="required"
+						autocomplete="given-name"
+						class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 h-[70px]"
+						data-forms--inputs--text-target="text"
+						maxlength="50"
+						placeholder="Jane"
+						data-careersite--form-target="firstName"
+						data-careersite--messenger-token-target="firstName"
+						size="50"
+						type="text"
+						name="candidate[first_name]"
+						id="candidate_first_name"
+					/>
+
+					<div
+						class="flex flex-wrap items-center hidden mt-2"
+						data-forms--inputs--text-target="suggestionElementContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 inline-block currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span class="ml-1">
+							Did you mean
+							<button
+								type="button"
+								class="underline hover:opacity-animated"
+								data-forms--inputs--text-target="suggestionElement"
+								data-action="click->forms--inputs--text#useSuggestedEmail"
+							></button>
+						</span>
+					</div>
+				</div>
+
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start ml-0 sm:ml-2 mb-6"
+					data-controller="forms--inputs--text tooltip"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_last_name"
+						>Last name<sup class="ml-1 font-normal opacity-75">*</sup></label
+					>
+
+					<input
+						required="required"
+						autocomplete="family-name"
+						class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 h-[70px]"
+						data-forms--inputs--text-target="text"
+						maxlength="50"
+						placeholder="Doe"
+						data-careersite--form-target="lastName"
+						data-careersite--messenger-token-target="lastName"
+						size="50"
+						type="text"
+						name="candidate[last_name]"
+						id="candidate_last_name"
+					/>
+
+					<div
+						class="flex flex-wrap items-center hidden mt-2"
+						data-forms--inputs--text-target="suggestionElementContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 inline-block currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span class="ml-1">
+							Did you mean
+							<button
+								type="button"
+								class="underline hover:opacity-animated"
+								data-forms--inputs--text-target="suggestionElement"
+								data-action="click->forms--inputs--text#useSuggestedEmail"
+							></button>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-col sm:flex-row">
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start mr-0 sm:mr-2 mb-6"
+					data-controller="forms--inputs--text tooltip"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_email"
+						>Email<sup class="ml-1 font-normal opacity-75">*</sup></label
+					>
+
+					<input
+						required="required"
+						autocomplete="email"
+						class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 h-[70px]"
+						data-forms--inputs--text-target="text"
+						placeholder="jane@example.com"
+						data-careersite--form-target="email"
+						data-careersite--messenger-token-target="email"
+						data-suggest-email-correction="true"
+						type="email"
+						name="candidate[email]"
+						id="candidate_email"
+					/>
+
+					<div
+						class="flex flex-wrap items-center hidden mt-2"
+						data-forms--inputs--text-target="suggestionElementContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 inline-block currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span class="ml-1">
+							Did you mean
+							<button
+								type="button"
+								class="underline hover:opacity-animated"
+								data-forms--inputs--text-target="suggestionElement"
+								data-action="click->forms--inputs--text#useSuggestedEmail"
+							></button>
+						</span>
+					</div>
+				</div>
+				<div
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-center ml-0 sm:ml-2 mb-6"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_phone"
+						>Phone<sup class="ml-1 font-normal opacity-75">*</sup></label
+					>
+						<input
+							required="required"
+							autocomplete="tel"
+							aria-label="Phone number with country code"
+							class="rounded-md px-4 w-full sm:px-6 h-[70px] border-2 ring-inset border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form rtl:text-left hover:shadow-form-strong focus:shadow-form-strong focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800"
+							data-controller="phone-input"
+							data-phone-input-country-value="SE"
+							data-phone-input-initialized-value="true"
+							data-wrapper-class="w-full iti--large-flag-padding text-gray-800 transform focus:-translate-y-px hover:-translate-y-px z-phone-input-flag outline-none"
+							data-invalid-number="Invalid number"
+							data-invalid-country-code="Invalid country code"
+							data-too-short="Too short"
+							data-too-long="Too long"
+							data-careersite--form-target="phone"
+							type="tel"
+							name="candidate[phone]"
+							id="candidate_phone"
+							placeholder="+46 70 123 45 67"
+							data-intl-tel-input-id="0"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="mb-6">
+				<link
+					rel="preload"
+					href="https://assets.teamtailor-cdn.com/assets/packs/js/dropzone-3bc1d6bf9183eb69d91e.chunk.js"
+					as="script"
+					type="text/javascript"
+				/>
+
+				<div
+					data-controller="forms--inputs--upload"
+					data-forms--inputs--upload-accepted-files-value=".docx,.pptx,.pdf,.pages,.txt,.rtf"
+					data-forms--inputs--upload-max-files-value="1"
+					data-forms--inputs--upload-add-remove-links-value="true"
+					data-forms--inputs--upload-translations-value='{"dictDefaultMessage":"Drop files here to upload","dictFallbackMessage":"Your browser does not support drag \u0026 drop file uploads.","dictFallbackText":"Please use the fallback form below to upload your files like in the olden days.","dictFileTooBig":"File is too big ({{filesize}}MB). Max filesize: {{maxFilesize}}MB.","dictInvalidFileType":"You can’t upload files of this type. Allowed types: {{acceptedFiles}}","dictResponseError":"Server responded with {{statusCode}} code.","dictUploadCanceled":"Upload cancelled.","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","dictMaxFilesExceeded":"You can not upload any more files.","click_to_upload":"Click to \u003cu\u003eupload\u003c/u\u003e","drag_to_upload":"Drop your file or \u003cu\u003eupload\u003c/u\u003e","drop_file_here":"Drop to upload","dictFileSizeUnits":{"tb":"TB","gb":"GB","mb":"MB","kb":"KB","b":"b"},"xssError":"This is an invalid file, please use a document which does not contain JavaScript."}'
+					data-forms--inputs--upload-files-value="[]"
+					data-forms--inputs--upload-required-value="true"
+					data-forms--inputs--upload-careersite--form-outlet="#job-application-form"
+					id="upload_resume_field"
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-center"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_resume_remote_url"
+						>Upload CV<sup class="ml-1 font-normal opacity-75">*</sup></label
+					>
+
+					<div
+						class="relative w-full p-2 overflow-hidden text-gray-800 bg-white border-2 border-white rounded-md cursor-pointer h-[70px] group text-md shadow-form transform hover:shadow-form-strong hover:-translate-y-px focus-within:shadow-form-strong focus-within:-translate-y-px ring-inset focus-within:ring-2 focus-within:ring-gray-800"
+						data-forms--inputs--upload-target="trigger"
+					>
+						<div
+							class="flex items-center justify-center h-full p-3 border-gray-300 border-dashed rounded border-3"
+						>
+							<span class="dz-message">
+								<span class="dz-message-inactive">
+									<span
+										class=""
+										data-forms--inputs--upload-target="desktopText"
+									>
+										Drop your file or <u>upload</u>
+									</span>
+									<span
+										class="hidden"
+										data-forms--inputs--upload-target="mobileText"
+									>
+										Click to <u>upload</u>
+									</span>
+								</span>
+								<span class="hidden dz-message-hovering">
+									<span class="flex items-center">
+										<span class="ml-2">Drop to upload</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<input
+							type="file"
+							class="dz-hidden-input"
+							accept=".docx,.pptx,.pdf,.pages,.txt,.rtf"
+							id="candidate_resume_remote_url"
+							required=""
+							style="
+								position: absolute;
+								top: 0px;
+								left: 0px;
+								height: 100%;
+								width: 100%;
+								cursor: pointer;
+								opacity: 0;
+							"
+						/>
+					</div>
+					<div
+						data-forms--inputs--upload-target="previewsContainer"
+						class="w-full"
+					></div>
+
+					<button
+						type="button"
+						class="items-center hidden mt-3 no-underline cursor-pointer hover:opacity-80 no-company-style dz-clickable"
+						data-forms--inputs--upload-target="secondaryTrigger"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 rounded-full mr-2 flex-shrink-0 currentColor"
+						>
+							<path
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span>Upload more</span>
+					</button>
+
+					<p
+						class="items-center hidden mt-3"
+						data-forms--inputs--upload-target="errorContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 text-red-500 bg-white rounded-full mr-3 flex-shrink-0 currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span data-forms--inputs--upload-target="errorMsg"></span>
+					</p>
+
+					<template data-forms--inputs--upload-target="templatePreview">
+						<div
+							class="flex items-center relative w-full p-4 mb-2 overflow-hidden text-gray-800 bg-white border-none rounded-md sm:px-6 min-h-[70px] group shadow-form text-md last:mb-0"
+							data-controller="forms--inputs--upload-preview"
+							data-forms--inputs--upload-preview-name-value="resume_remote_url"
+							data-forms--inputs--upload-preview-delete-name-value="delete_resume_remote_url"
+						>
+							<div
+								class="relative items-center justify-between hidden w-full h-full"
+								data-forms--inputs--upload-preview-target="name"
+							>
+								<a
+									data-dz-name=""
+									class="mr-3 overflow-hidden pointer-events-none hover:opacity-80 text-ellipsis"
+									href="javascript:void(0);"
+									data-forms--inputs--upload-preview-target="link"
+									target="_blank"
+									rel="noopener noreferrer"
+								></a>
+								<button
+									tabindex="0"
+									title="Clear file selection"
+									class="text-black rounded-full cursor-pointer focus:outline-none hover:opacity-80 no-company-style focus:ring-2 focus:ring-gray-800"
+									data-dz-remove="true"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+										class="w-6 h-6 currentColor"
+									>
+										<path
+											d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+										></path>
+									</svg>
+								</button>
+							</div>
+							<div
+								class="w-full"
+								data-progress=""
+								data-forms--inputs--upload-preview-target="progress"
+							>
+								<div class="flex items-center justify-between mb-2">
+									<span>Uploading…</span
+									><a
+										class="text-black cursor-pointer hover:opacity-80 no-company-style"
+										data-dz-remove=""
+										><svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+											class="w-6 h-6 currentColor"
+										>
+											<path
+												d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+												fill-rule="evenodd"
+												clip-rule="evenodd"
+											></path></svg
+									></a>
+								</div>
+								<div
+									class="w-full overflow-hidden bg-gray-300 rounded-full h-[6px] dz-progress shadow-inner-tiny"
+								>
+									<span
+										class="block w-0 h-full bg-gray-600 dz-upload"
+										data-dz-uploadprogress=""
+									></span>
+								</div>
+							</div>
+							<input
+								value=""
+								class="hidden"
+								disabled="disabled"
+								data-forms--inputs--upload-preview-target="urlInput"
+								type="text"
+								name="candidate[resume_remote_url]"
+								id="candidate_resume_remote_url"
+							/>
+							<input
+								disabled="disabled"
+								value="0"
+								data-forms--inputs--upload-preview-target="deleteInput"
+								autocomplete="off"
+								type="hidden"
+								name="candidate[delete_resume_remote_url]"
+								id="candidate_delete_resume_remote_url"
+							/>
+							<input
+								disabled="disabled"
+								data-forms--inputs--upload-preview-target="idInput"
+								autocomplete="off"
+								type="hidden"
+								name="candidate[id]"
+								id="candidate_id"
+							/>
+						</div>
+					</template>
+				</div>
+			</div>
+			<div class="mb-6">
+				<link
+					rel="preload"
+					href="https://assets.teamtailor-cdn.com/assets/packs/js/dropzone-3bc1d6bf9183eb69d91e.chunk.js"
+					as="script"
+					type="text/javascript"
+				/>
+
+				<div
+					data-controller="forms--inputs--upload"
+					data-forms--inputs--upload-accepted-files-value=""
+					data-forms--inputs--upload-max-files-value="3"
+					data-forms--inputs--upload-add-remove-links-value="true"
+					data-forms--inputs--upload-translations-value='{"dictDefaultMessage":"Drop files here to upload","dictFallbackMessage":"Your browser does not support drag \u0026 drop file uploads.","dictFallbackText":"Please use the fallback form below to upload your files like in the olden days.","dictFileTooBig":"File is too big ({{filesize}}MB). Max filesize: {{maxFilesize}}MB.","dictInvalidFileType":"You can’t upload files of this type. Allowed types: {{acceptedFiles}}","dictResponseError":"Server responded with {{statusCode}} code.","dictUploadCanceled":"Upload cancelled.","dictCancelUploadConfirmation":"Are you sure you want to cancel this upload?","dictMaxFilesExceeded":"You can not upload any more files.","click_to_upload":"Click to \u003cu\u003eupload\u003c/u\u003e","drag_to_upload":"Drop your file or \u003cu\u003eupload\u003c/u\u003e","drop_file_here":"Drop to upload","dictFileSizeUnits":{"tb":"TB","gb":"GB","mb":"MB","kb":"KB","b":"b"},"xssError":"This is an invalid file, please use a document which does not contain JavaScript."}'
+					data-forms--inputs--upload-files-value="[]"
+					data-forms--inputs--upload-required-value="false"
+					data-forms--inputs--upload-careersite--form-outlet="#job-application-form"
+					class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-center"
+				>
+					<label
+						class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+						for="candidate_file_remote_url"
+						>Additional files</label
+					>
+
+					<div
+						class="relative w-full p-2 overflow-hidden text-gray-800 bg-white border-2 border-white rounded-md cursor-pointer h-[70px] group text-md shadow-form transform hover:shadow-form-strong hover:-translate-y-px focus-within:shadow-form-strong focus-within:-translate-y-px ring-inset focus-within:ring-2 focus-within:ring-gray-800"
+						data-forms--inputs--upload-target="trigger"
+					>
+						<div
+							class="flex items-center justify-center h-full p-3 border-gray-300 border-dashed rounded border-3"
+						>
+							<span class="dz-message">
+								<span class="dz-message-inactive">
+									<span
+										class=""
+										data-forms--inputs--upload-target="desktopText"
+									>
+										Drop your file or <u>upload</u>
+									</span>
+									<span
+										class="hidden"
+										data-forms--inputs--upload-target="mobileText"
+									>
+										Click to <u>upload</u>
+									</span>
+								</span>
+								<span class="hidden dz-message-hovering">
+									<span class="flex items-center">
+										<span class="ml-2">Drop to upload</span>
+									</span>
+								</span>
+							</span>
+						</div>
+						<input
+							type="file"
+							multiple="multiple"
+							class="dz-hidden-input"
+							accept=""
+							id="candidate_file_remote_url"
+							style="
+								position: absolute;
+								top: 0px;
+								left: 0px;
+								height: 100%;
+								width: 100%;
+								cursor: pointer;
+								opacity: 0;
+							"
+						/>
+					</div>
+					<div
+						data-forms--inputs--upload-target="previewsContainer"
+						class="w-full"
+					></div>
+
+					<button
+						type="button"
+						class="items-center hidden mt-3 no-underline cursor-pointer hover:opacity-80 no-company-style dz-clickable"
+						data-forms--inputs--upload-target="secondaryTrigger"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 rounded-full mr-2 flex-shrink-0 currentColor"
+						>
+							<path
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span>Upload more</span>
+					</button>
+
+					<p
+						class="items-center hidden mt-3"
+						data-forms--inputs--upload-target="errorContainer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							class="w-6 h-6 text-red-500 bg-white rounded-full mr-3 flex-shrink-0 currentColor"
+						>
+							<path
+								d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+								fill-rule="evenodd"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+						<span data-forms--inputs--upload-target="errorMsg"></span>
+					</p>
+
+					<template data-forms--inputs--upload-target="templatePreview">
+						<div
+							class="flex items-center relative w-full p-4 mb-2 overflow-hidden text-gray-800 bg-white border-none rounded-md sm:px-6 min-h-[70px] group shadow-form text-md last:mb-0"
+							data-controller="forms--inputs--upload-preview"
+							data-forms--inputs--upload-preview-name-value="file_remote_url"
+							data-forms--inputs--upload-preview-model-value="uploads_attributes"
+							data-forms--inputs--upload-preview-parent-value="candidate"
+							data-forms--inputs--upload-preview-delete-name-value="_destroy"
+						>
+							<div
+								class="relative items-center justify-between hidden w-full h-full"
+								data-forms--inputs--upload-preview-target="name"
+							>
+								<a
+									data-dz-name=""
+									class="mr-3 overflow-hidden pointer-events-none hover:opacity-80 text-ellipsis"
+									href="javascript:void(0);"
+									data-forms--inputs--upload-preview-target="link"
+									target="_blank"
+									rel="noopener noreferrer"
+								></a>
+								<button
+									tabindex="0"
+									title="Clear file selection"
+									class="text-black rounded-full cursor-pointer focus:outline-none hover:opacity-80 no-company-style focus:ring-2 focus:ring-gray-800"
+									data-dz-remove="true"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="currentColor"
+										viewBox="0 0 20 20"
+										class="w-6 h-6 currentColor"
+									>
+										<path
+											d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+											fill-rule="evenodd"
+											clip-rule="evenodd"
+										></path>
+									</svg>
+								</button>
+							</div>
+							<div
+								class="w-full"
+								data-progress=""
+								data-forms--inputs--upload-preview-target="progress"
+							>
+								<div class="flex items-center justify-between mb-2">
+									<span>Uploading…</span
+									><a
+										class="text-black cursor-pointer hover:opacity-80 no-company-style"
+										data-dz-remove=""
+										><svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="currentColor"
+											viewBox="0 0 20 20"
+											class="w-6 h-6 currentColor"
+										>
+											<path
+												d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+												fill-rule="evenodd"
+												clip-rule="evenodd"
+											></path></svg
+									></a>
+								</div>
+								<div
+									class="w-full overflow-hidden bg-gray-300 rounded-full h-[6px] dz-progress shadow-inner-tiny"
+								>
+									<span
+										class="block w-0 h-full bg-gray-600 dz-upload"
+										data-dz-uploadprogress=""
+									></span>
+								</div>
+							</div>
+							<input
+								value=""
+								class="hidden"
+								disabled="disabled"
+								data-forms--inputs--upload-preview-target="urlInput"
+								type="text"
+								name="candidate[file_remote_url]"
+								id="candidate_file_remote_url"
+							/>
+							<input
+								disabled="disabled"
+								value="0"
+								data-forms--inputs--upload-preview-target="deleteInput"
+								autocomplete="off"
+								type="hidden"
+								name="candidate[_destroy]"
+								id="candidate__destroy"
+							/>
+							<input
+								disabled="disabled"
+								data-forms--inputs--upload-preview-target="idInput"
+								autocomplete="off"
+								type="hidden"
+								name="candidate[id]"
+								id="candidate_id"
+							/>
+						</div>
+					</template>
+				</div>
+			</div>
+
+			<input
+				autocomplete="off"
+				type="hidden"
+				value="3472682"
+				name="candidate[job_applications_attributes][0][job_id]"
+				id="candidate_job_applications_attributes_0_job_id"
+			/>
+
+			<div
+				class="flex flex-col justify-between flex-grow w-full h-full sm:items-start sm:justify-start mb-6"
+				data-controller="forms--inputs--text tooltip"
+			>
+				<label
+					class="font-medium sm:w-auto block leading-light mb-3 text-xl"
+					for="candidate_job_applications_attributes_0_cover_letter"
+					>Cover letter</label
+				>
+
+				<textarea
+					class="rounded-md px-4 w-full sm:px-6 border-2 border-white placeholder-gray-400 placeholder-opacity-60 text-gray-800 text-md shadow-form transform resize-none hover:shadow-form-strong hover:-translate-y-px focus:shadow-form-strong focus:-translate-y-px focus:ring-inset focus:border-white focus:border-2 focus:ring-2 focus:ring-gray-800 disabled:shadow-form disabled:translate-y-0 disabled:cursor-not-allowed disabled:text-gray-600 disabled:opacity-50 py-6 resize-y"
+					data-forms--inputs--text-target="text"
+					rows="3"
+					placeholder="Write your letter…"
+					name="candidate[job_applications_attributes][0][cover_letter]"
+					id="candidate_job_applications_attributes_0_cover_letter"
+				></textarea>
+
+				<div
+					class="flex flex-wrap items-center hidden mt-2"
+					data-forms--inputs--text-target="suggestionElementContainer"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						class="w-6 h-6 inline-block currentColor"
+					>
+						<path
+							d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+						></path>
+					</svg>
+					<span class="ml-1">
+						Did you mean
+						<button
+							type="button"
+							class="underline hover:opacity-animated"
+							data-forms--inputs--text-target="suggestionElement"
+							data-action="click->forms--inputs--text#useSuggestedEmail"
+						></button>
+					</span>
+				</div>
+			</div>
+			<div class="mt-12 sm:px-8 ls-underline">
+				<div data-controller="common--modal" style="">
+					<div data-common--modal-target="linkContainer">
+						<div class="mb-3">
+							<style type="text/css">
+								.permission-text a[href^='https://']
+								{
+									text-decoration: underline;
+								}
+							</style>
+
+							<div class="flex flex-grow gap-x-4">
+								<input
+									name="candidate[consent_given]"
+									type="hidden"
+									value="0"
+									autocomplete="off"
+								/><input
+									required="required"
+									class="border-0 mt-[2px] rounded-xs w-5 h-5 text-gray-800 cursor-pointer border-1 border-white checked:border-white checked:ring-white ring-2 ring-white focus:ring-gray-800 focus:border-white"
+									type="checkbox"
+									value="1"
+									name="candidate[consent_given]"
+									id="candidate_consent_given"
+								/>
+								<label
+									class="cursor-pointer permission-text"
+									for="candidate_consent_given"
+									><p>
+										By submitting this application, I agree that I have read the
+										<a
+											class="privacy-policy"
+											data-turbo="false"
+											href="https://career.airahome.com/privacy-policy"
+											>Privacy Policy</a
+										>&nbsp;and confirm that Aira store my personal details to be
+										able to process my job application.
+									</p></label
+								>
+							</div>
+						</div>
+						<div class="mb-3">
+							<style type="text/css">
+								.permission-text a[href^='https://']
+								{
+									text-decoration: underline;
+								}
+							</style>
+
+							<div class="flex flex-grow gap-x-4">
+								<input
+									name="candidate[consent_given_future_jobs]"
+									type="hidden"
+									value="0"
+									autocomplete="off"
+								/><input
+									class="border-0 mt-[2px] rounded-xs w-5 h-5 text-gray-800 cursor-pointer border-1 border-white checked:border-white checked:ring-white ring-2 ring-white focus:ring-gray-800 focus:border-white"
+									type="checkbox"
+									value="1"
+									name="candidate[consent_given_future_jobs]"
+									id="candidate_consent_given_future_jobs"
+								/>
+								<label
+									class="cursor-pointer permission-text"
+									for="candidate_consent_given_future_jobs"
+									><p>
+										Yes, Aira can contact me directly about specific future job
+										opportunities.
+									</p></label
+								>
+							</div>
+						</div>
+						<input
+							type="submit"
+							name="commit"
+							value="Submit application"
+							class="block mx-auto py-4 px-20 bg-company-secondary-text text-company-secondary-bg rounded-company shadow-form-border-button cursor-pointer disabled:cursor-wait disabled:opacity-75 outline-none border-2 border-company-secondary-text transform resize-none hover:shadow-form-border-button-hover focus:shadow-form-border-button-hover hover:-translate-y-px focus:-translate-y-px focus:ring-2 focus:ring-gray-800 focus:ring-inset mt-12"
+							data-disable-with="Submit application"
+						/>
+					</div>
+
+					<template data-common--modal-target="template">
+						<div
+							class="fixed top-0 left-0 items-center justify-center w-full h-full transition-opacity duration-200 bg-black bg-opacity-50 modal z-modal backdrop-blur-md hidden"
+						>
+							<div
+								class="z-modal overflow-y-auto bg-white max-h-screen h-full sm:h-auto sm:max-h-[80vh] sm:mx-4 max-w-920 w-full lg:min-w-screen-md sm:rounded shadow-form-strong"
+							>
+								<div
+									class="w-full h-full absolute top-0 left-0 right-0 bottom-0"
+								></div>
+
+								<div class="relative w-full h-full px-6 py-16 lg:px-25">
+									<button
+										type="button"
+										title="Close modal"
+										class="absolute top-0 right-0 leading-none text-3xl px-4 pb-2 rounded-full text-gray-800 cursor-pointer hover:opacity-75 focus-visible-company"
+										data-close="true"
+									>
+										<i class="fal fa-xmark"></i>
+									</button>
+									<div class="modal-content default-style">
+										<div class="ls-underline">
+											<p></p>
+											<h3>Privacy policy for recruitment using Teamtailor</h3>
+											<p>
+												The service for handling recruitments and simplifying
+												the hiring process (the "Service") is powered by
+												Teamtailor on behalf of Aira ("Controller" “we” “us”
+												etc.). It is important that the persons using the
+												Service ("Users”) feel safe with, and are informed
+												about, how we handle User's personal data in the
+												recruitment process. We strive to maintain the highest
+												possible standard regarding the protection of personal
+												data. We process, manage, use, and protect User's
+												Personal Data in accordance with this Privacy Policy
+												("Privacy Policy").
+											</p>
+											<h3>1. General</h3>
+											<p>
+												We are the controller in accordance with current privacy
+												legislations. The Users’ personal data is processed with
+												the purpose of managing and facilitating recruitment of
+												employees to our business.
+											</p>
+											<h3>2. Collection of personal data</h3>
+											<p>
+												We are responsible for the processing of the personal
+												data that the Users contributes to the Service, or for
+												the personal data that we in other ways collects with
+												regards to the Service.
+											</p>
+											<p>
+												<i>When and how we collect personal data</i> <br />We
+												collect personal data about Users from Users when Users;
+											</p>
+											<ul>
+												<li>
+													make an application through the Service or otherwise,
+													adding personal data about themselves either
+													personally or by using a third-party source such as
+													Facebook or LinkedIn; and
+												</li>
+												<li>
+													use the Service to connect with our staff, adding
+													personal data about themselves either personally or by
+													using a third-party source such as Facebook or
+													LinkedIn.
+												</li>
+												<li>
+													provides identifiable data in the chat (provided
+													through the website that uses the Service) and such
+													data is of relevance to the application procedure;
+												</li>
+											</ul>
+											<p>
+												We collect data from third parties, such as Facebook,
+												LinkedIn and through other public sources. This is
+												referred to as “Sourcing” and be manually performed by
+												our employees or automatically in the Service.
+											</p>
+											<p>
+												In some cases, existing employees can make
+												recommendations about potential applicants. Such
+												employees will add personal data about such potential
+												applicants. In the cases where this is made, the
+												potential applicant is considered a User in the context
+												of this Privacy Policy and will be informed about the
+												processing.
+											</p>
+											<p>
+												<i
+													>The types of personal data collected and processed</i
+												>
+												<br />The categories of personal data that can be
+												collected through the Service can be used to identify
+												natural persons from names, e-mails, pictures and
+												videos, information from Facebook and LinkedIn-accounts,
+												answers to questions asked through the recruiting,
+												titles, education and other information that the User or
+												others have provided through the Service. Only data that
+												is relevant for the recruitment process is collected and
+												processed.
+											</p>
+											<p>
+												<i>Purpose and lawfulness of processing</i> <br />The
+												purpose of the collecting and processing of personal
+												data is to manage recruiting. The lawfulness of the
+												processing of personal data is our legitimate interest
+												to simplify and facilitate recruitment.
+											</p>
+											<p>
+												Personal data that is processed with the purpose of
+												aggregated analysis or market research is always made
+												unidentifiable. Such personal data cannot be used to
+												identify a certain User. Thus, such data is not
+												considered personal data.
+											</p>
+											<p>
+												<i>The consent of the data subject</i> <br />The User
+												consents to the processing of its personal data with the
+												purpose of Controller’s handling recruiting. The User
+												consents that personal data is collected through the
+												Service, when Users;
+											</p>
+											<ul>
+												<li>
+													make an application through the Service, adding
+													personal data about themselves either personally or by
+													using a third-party source as Facebook or LinkedIn,
+													and that Controller may use external sourcing-tools to
+													add additional information; and
+												</li>
+												<li>
+													when they use the Service to connect to Controller’s
+													recruitment department, adding personal data about
+													themselves either personally or by using a third-party
+													source such as Facebook or LinkedIn.
+												</li>
+											</ul>
+											<p>
+												The User also consents to the Controller collecting
+												publically available information about the User and
+												compiles them for use in recruitment purposes.
+											</p>
+											<p>
+												The User consents to the personal data being collected
+												in accordance with the above a) and b) will be processed
+												according to the below sections Storage and transfer and
+												How long the personal data will be processed.
+											</p>
+											<p>
+												The User has the right to withdraw his or her consent at
+												any time, by contacting Controller using the contact
+												details listed under 9. Using this right may however,
+												mean that the User can not apply for a specific job or
+												otherwise use the Service.
+											</p>
+											<p>
+												<i>Storage and transfers</i> <br />The personal data
+												collected through the Service is stored and processed
+												inside the EU/EEA, or such third country that is
+												considered by the European Commission to have an
+												adequate level of protection, or processed by such
+												suppliers that have entered into such binding agreements
+												that fully complies with the lawfulness of third country
+												transfers or to other supplies where adequate safeguards
+												are in place to protect the rights of the data subjects
+												whose data is transferred. To obtain documentation
+												regarding such adequate safeguards, contact us using the
+												Contact details listed in 9.
+											</p>
+											<p>
+												<i>How long the personal data will be processed</i>
+												<br />If a User does not object, in writing, to the
+												processing of their personal data, the personal data
+												will be stored and processed by us as long as we deem it
+												necessary with regards to the purposes stated above.
+												Note that an applicant (User) may be interesting for
+												future recruitment and for this purpose we may store
+												Users’ Personal Data until they are no longer of value
+												as potential recruitments. If you as a User wish not to
+												have your Personal Data processed for this purpose
+												(future recruitment) please contact us using the contact
+												details in paragraph 9.
+											</p>
+											<h3>3. Users’ rights</h3>
+											<p>
+												Users have the right to request information about the
+												personal data that is processed by us, by notifying in
+												writing, us using the contact details below under
+												paragraph 9 below. Users have the right to one (1) copy
+												of the processed personal data which belongs to them
+												without any charge. For further demanded copies,
+												Controller has a right to charge a reasonable fee on the
+												basis of the administrative costs for such demand.
+											</p>
+											<p>
+												Users have the right to, if necessary, rectification of
+												inaccurate personal data concerning that User, via a
+												written request, using the contact details in paragraph
+												9 below.
+											</p>
+											<p>
+												The User has the right to demand deletion or restriction
+												of processing, and the right to object to processing
+												based on legitimate interest under certain
+												circumstances.
+											</p>
+											<p>
+												The User has the right to revoke any consent to
+												processing that has been given by the User to
+												Controller. Using this right may however, mean that the
+												User can not apply for a specific job or otherwise use
+												the Service.
+											</p>
+											<p>
+												The User has under certain circumstances a right to data
+												portability, which means a right to get the personal
+												data and transfer these to another controller as long as
+												this does not negatively affect the rights and freedoms
+												of others.
+											</p>
+											<p>
+												User has the right to lodge a complaint to the
+												supervisory authority regarding the processing of
+												personal data relating to him or her, if the User
+												considers that the processing of personal data infringes
+												the legal framework of privacy law.
+											</p>
+											<h3>4. Security</h3>
+											<p>
+												We prioritize the personal integrity and therefore works
+												actively so that the personal data of the Users are
+												processed with utmost care. We take the measures that
+												can be reasonably expected to the make sure that the
+												personal data of Users and others are processed safely
+												and in accordance to this Privacy Policy and the
+												GDPR-regulation.
+											</p>
+											<p>
+												However, transfers of information over the internet and
+												mobile networks can never occur without any risk, so all
+												transfers are made on the own risk of the person
+												transferring the data. It is important that Users also
+												take responsibility to ensure that their data is
+												protected. It is the responsibility of the User that
+												their login information is kept secret.
+											</p>
+											<h3>5. Transfer of personal data to third party</h3>
+											<p>
+												We will not sell or otherwise transfer Users’ personal
+												data to third parties.
+											</p>
+											<p>We may transfer Users’ Personal Data to;</p>
+											<ul>
+												<li>
+													our contractors and sub-contractors, acting as our
+													Processors and Sub-Processors in accordance with our
+													instructions, for the provision of the Service;
+												</li>
+												<li>
+													authorities or legal advisors in case criminal or
+													improper behaviour is suspected; and
+												</li>
+												<li>
+													authorities, legal advisors or other actors, if
+													required by us according to law or authority’s
+													injunction.
+												</li>
+											</ul>
+											<p>
+												We will only transfer Users’ personal data to third
+												parties that we have confidence in. We carefully choose
+												partners to ensure that the User’s personal data is
+												processed in accordance to current privacy legislations.
+												We cooperate with the following categories of processors
+												of personal data; Teamtailor, who supplies the Service,
+												server and hosting companies, e-mail reference
+												companies, video processing companies,
+												information-sourcing companies, analytical service
+												companies and other companies with regards to suppling
+												the Service.
+											</p>
+											<h3>
+												6. Aggregated data (non-identifiable personal data)
+											</h3>
+											<p>
+												We may share aggregated data to third parties. The
+												aggregated data has in such instances been compiled from
+												information that has been collected through the Service
+												and can, for example, consist of statistics of internet
+												traffic or the geological location for the use of the
+												Service. The aggregated data does not contain any
+												information that can be used to identify individual
+												persons and is thus not personal data.
+											</p>
+											<h3>7. Cookies</h3>
+											<p>
+												When Users use the Service, information about the usage
+												may be stored as cookies. Cookies are passive text files
+												that are stored in the internet browser on the User’s
+												device, such as computer, mobile phone or tablet, when
+												using the Service. We use cookies to improve the User’s
+												usage of the Service and to gather information about,
+												for example, statistics about the usage of the Service.
+												This is done to secure, maintain and improve the
+												Service. The information that is collected through the
+												cookies can in some instances be personal data and is,
+												in such instances, regulated by our
+												<a
+													href="https://career.airahome.com/cookie_policy"
+													target="_blank"
+													>Cookie Policy</a
+												>.
+											</p>
+											<p>
+												Users can at any time disable the use of cookies by
+												changing the local settings in their devices. Disabling
+												of cookies can affect the experience of the Service, for
+												example disabling some functions in the Service.
+											</p>
+											<h3>8. Changes</h3>
+											<p>
+												We have the right to, at any time, make changes or
+												additions to the Privacy Policy. The latest version of
+												the Privacy Policy will always be available through the
+												Service. A new version is considered communicated to the
+												Users when the User has either received an email
+												informing the User of the new version (using the e-mail
+												stated by the User in connection to the use of the
+												Service) or when the User is otherwise informed of the
+												new Privacy Policy.
+											</p>
+											<h3>9. Contact</h3>
+											<p>
+												For questions, further information about our handling of
+												personal data or for contact with us in other matters,
+												please use the below stated contact details; Aira
+												asa.logdberg@airahome.com
+											</p>
+											<p></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</template>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
