@@ -1,18 +1,26 @@
 from httpcore import TimeoutException
 from job_scrapper import doScaping
-from helper import adScrapper, wait_for_lazy_loaded_elements,scroll_to_bottom
+from helper import adScrapper, extract_and_convert_dict
+from selenium_driver.driver_interactor import *
+from data_process.html_sanitizer import handle_embedded_html_in_iframe
 from ai.agents.job_post_analyzer.agent import analyize;
 from ai.agents.email_writer.agent import generate_email;
 from ai.agents.website_analyzer.agent import web_analize;
+from ai.agents.web_form_answerer.pydantic.agent import web_form_answerer
+from ai.agents.determine_file_upload.pydantic.agent import determin_file_upload
+import ast
 
-from services.stmp import create_email , send_email
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import Select
 
-from selenium.webdriver.support.ui import WebDriverWait
 from data_process.html_processor import clean_html
+from data_process.form_processor import clean_from
+import json
+from data_process.html_sanitizer import extract_forms
+
+from automation.form_automation import fill_form
+
+from automation.form_automation import find_file_inputs, handle_cookie_popups,click_cookie_accept_buttons
 # url = "https://arbetsformedlingen.se/platsbanken/annonser/28730687" # This is a mail link
 url = "https://www.randstad.se/mitt-randstad/ansok/d242f1e7-fe46-4e57-8cd5-e759dd2e72c3/" # This is a mail link
 
@@ -60,162 +68,82 @@ url = "https://www.randstad.se/mitt-randstad/ansok/d242f1e7-fe46-4e57-8cd5-e759d
 
 # applicaiton_link = data['application_link']
 
-def check_document_ready(driver):
-    """Check if the document is fully loaded."""
-    return driver.execute_script("return document.readyState") == 'complete'
-    
-driver = webdriver.Chrome()
-driver.get("https://sollentuna.varbi.com/what:job/jobID:719501/type:job/where:1/apply:1")
 
-ready_state = driver.execute_script("return document.readyState")
-bindings_ready = driver.execute_script("return typeof angular !== 'undefined' && angular.element(document.body).injector().get('$http').pendingRequests.length === 0")
-scroll_to_bottom(driver)
-# lazy_elements = wait_for_lazy_loaded_elements(driver, "loading", "lazy")
+driver = create_selenium_driver()
+driver.get("https://team.nytida.se/jobs/3656333-timvikarier-till-varnhem-s-a-norlings-gruppboende-lss?promotion=930622-arbetsformedlingen")
+# wait_for_angular_ready(driver)
+# wait_for_document_complete(driver)
+# scroll_to_bottom(driver)
 
-driver.execute_script("""
-var scripts = document.body.getElementsByTagName('script');
-while (scripts.length > 0) {
-scripts[0].parentNode.removeChild(scripts[0]);
-}
+if wait_for_document_complete(driver):
+    # Check if Angular is ready
+    if wait_for_angular_ready(driver):
+        # Perform the scrolling
+        scroll_to_bottom(driver)
+    else:
+        print("Angular did not finish loading.")
+else:
+    print("Document did not finish loading.")
+wait_for_lazy_loaded_elements(driver, "loading", "lazy")
 
-var footer = document.getElementById('footer');
-if (footer) {
-footer.parentNode.removeChild(footer);
-}
+# handle_cookie_popups(driver)
+click_cookie_accept_buttons(driver)
 
-// Optionally remove any other elements identified as a footer by a different method
-var footerElements = document.querySelectorAll('.footer, footer');
-footerElements.forEach(function(element) {
-element.parentNode.removeChild(element);
-});
-""")
+iframe_html_contents = handle_embedded_html_in_iframe(driver)
 
+# # Fetch main page body content
 body_content = driver.find_element(By.CSS_SELECTOR, "body").get_attribute('innerHTML')
-# print(body_content)
-# input_elements = driver.find_elements(By.CSS_SELECTOR, "input[type='text'], input[type='file']")
 
-# links = driver.find_elements(By.TAG_NAME, "a")
-# form_elements = driver.find_elements(By.CSS_SELECTOR, "input, textarea, select")
+# # Combine main body content with iframe contents
+full_content = body_content
+for iframe_html in iframe_html_contents:
+    full_content += iframe_html  # Append each iframe's HTML to the main body content
 
-# cleaned_links_html = []
-# cleaned_input_fields_html = []
-# # Iterate over each link and print the href attribute
-# for link in links:
-#     href = link.get_attribute('href')
-#     text = link.text.strip()
-#     label = link.get_attribute('aria-label')
-#     print("---------------Link-----------------")
-#     print("Tag Name: a")
-#     print("Link:", href)
-#     print("Text:", text)
-#     a_tag={"Tag Name": "a","Link": href,"Text": text}
-#     cleaned_links_html.append(a_tag)
-    
-#     # soup = BeautifulSoup(link_html, 'html.parser') # type: ignore
-#     # for svg in soup.find_all('svg'):
-#     #     svg.decompose()
-#     # for img in soup.find_all('img'):
-#     #     img.decompose()
-    
-#     # cleaned_links_html.append(str(soup))
-#     # print(f"Link: {soup}")
 
-# # Iterate over each text input element and print relevant details
-# for element in form_elements:
-#     input_type = element.get_attribute('type')
-#     input_name = element.get_attribute('name')
-#     input_placeholder = element.get_attribute('placeholder')
-#     input_value = element.get_attribute('value')
-#     print("Tag Name: input")
-#     print("Type:", input_type)
-#     print("Name:", input_name)
-#     print("Placeholder:", input_placeholder)
-#     print("Value:", input_value)
-#     input_field={"Tag Name": element.tag_name, "Type": input_type, "Name": input_name, "Placeholder": input_placeholder, "Value": input_value, }
-#     cleaned_input_fields_html.append(input_field)
-    
-#     label_text = None
-#     # 1. Direct Containment
-#     try:
-#         parent_label = element.find_element(By.XPATH, "./ancestor::label") # type: ignore
-#         label_text = parent_label.text
-#         print("Direct Containment")
-#     except Exception:
-#         pass
 
-#     # 2. Sibling Elements
-#     if not label_text:
-#         try:
-#             label = element.find_element(By.XPATH, "preceding-sibling::label[1]") # type: ignore
-#             label_text = label.text
-#             print("Sibling Elements")
-
-#         except Exception:
-#             pass
-
-#     # 3. Closest Matching Text
-#     if not label_text:
-#         try:
-#             possible_label = element.find_element(By.XPATH, "preceding::node()[1]/self::label | following::node()[1]/self::label")# type: ignore
-#             label_text = possible_label.text
-#             print("Closest Matching Text")
-
-#         except Exception:
-#             pass
-#     # 4. Use aria-labelledby
-#     if not label_text:
-#         labelledby_id = element.get_attribute('aria-labelledby') # type: ignore
-#         if labelledby_id:
-#             try:
-#                 label = driver.find_element(By.ID, labelledby_id)
-#                 label_text = label.text
-#                 print("aria-labelledby")
-#             except Exception:
-#                 pass
-
-#     # 5. Check aria-label as a last resort
-#     if not label_text:
-#         label_text = element.get_attribute('aria-label')
-            
-    
-
-#     print("Associated Label:", label_text if label_text else "No label found")
-#     # input_html = input_field.get_attribute('outerHTML')
-#     # soup = BeautifulSoup(input_html, 'html.parser') # type: ignore
-#     # for svg in soup.find_all('svg'):
-#     #     svg.decompose()
-#     # for img in soup.find_all('img'):
-#     #     img.decompose()
-#     print("---------------input_field-----------------")
-    # print("Input Field HTML:", str(soup))
-    
-    # cleaned_input_fields_html.append(str(soup))
-    
-# print(cleaned_links_html+cleaned_input_fields_html)
-
-    
-# soup = BeautifulSoup(body_content, 'html.parser') # type: ignore
-# a_tags = soup.find_all('a')
-# for tag in a_tags:
-#     print(tag)
-#     print("URL:", tag.get('href'))
 # result = web_analize(cleaned_links_html+cleaned_input_fields_html)
 # print(result);
 
-
-
-
-
 # print(body_content)
 
-def clean_html_and_save(html_content, output_file):
-    """Clean the HTML content and save it to a local HTML file."""
-    cleaned_html = clean_html(html_content)
-    with open(output_file, 'w', encoding='utf-8') as file:
-        file.write(cleaned_html)
+# def clean_html_and_save(html_content, output_file):
+#     """Clean the HTML content and save it to a local HTML file."""
+#     cleaned_html = clean_html(html_content)
+#     with open(output_file, 'w', encoding='utf-8') as file:
+#         file.write(cleaned_html)
+#     return cleaned_html
 
-output_file = "cleaned_html_output.html"
-clean_html_and_save(body_content, output_file)
+# output_file = "cleaned_html_output.html"
+# print(body_content)
+# processed_html_body = clean_html_and_save(full_content, output_file)
+# result = web_analize(processed_html_body)  # type: ignore
 
-# print(clean_html(body_content))
+
+
+
+# result_to_json_string = json.dumps(result)
+# result_to_json = json.loads(result_to_json_string)
+
+# # print(result_to_json) # type: ignore
+# if result['is_application_form']:
+
+extracted_form = extract_forms(full_content)
+processed_form = clean_from(extracted_form)
+with open("html_form.html", 'w', encoding='utf-8') as file:
+    file.write(str(processed_form))
+    is_file_inputs =  find_file_inputs(processed_form)
+    form_answers = web_form_answerer(processed_form)
+    extracted_dict = extract_and_convert_dict(str(form_answers))
+    fill_form(driver, extracted_dict)
+    time.sleep(300)
+    # how_to_file_upload= determin_file_upload(processed_form)
+    # form_answers = web_form_answerer(processed_form)
+    # print(how_to_file_upload)
+ 
+            
+# fill_form(driver, application_answers)
+            
+# time.sleep(300)
 driver.quit()
+
+application_answers={'boolean-4217160-true': 'random', 'boolean-4217180-true': 'random', 'boolean-4217200-true': 'random', 'boolean-4217220-true': 'random', 'boolean-4217240-true': 'random', 'boolean-4217260-true': 'random', 'candidate_answers_attributes_6_text': 'random', 'candidate_first_name': 'Mouayad', 'candidate_last_name': 'Mouayad', 'candidate_email': 'mouayad1998@hotmail.com', 'candidate_phone': '+46 733 524 957', 'candidate_resume_remote_url': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_file_remote_url': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_job_applications_attributes_0_cover_letter': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_consent_given': 'checkbox', 'candidate_consent_given_future_jobs': 'checkbox', 'submit': 'submit'}

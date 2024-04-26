@@ -55,45 +55,30 @@ def adScrapper(url):
         driver.quit()
 
 
-def wait_for_lazy_loaded_elements(driver, attribute="loading", attribute_value="lazy", wait_time=30):
-    """
-    Wait for elements that are expected to be lazy-loaded.
-    """
-    try:
-        WebDriverWait(driver, wait_time).until(
-            lambda driver: driver.find_elements(By.XPATH, f"//*[@{attribute}='{attribute_value}']"))
-        lazy_elements = driver.find_elements(By.XPATH, f"//*[@{attribute}='{attribute_value}']")
-        # Further wait for each element to be visible if needed
-        for element in lazy_elements:
-            WebDriverWait(driver, wait_time).until(EC.visibility_of(element))
-    except TimeoutException:
-        print("Timed out waiting for lazy-loaded elements.")
-        return []
-
-    return lazy_elements
 
 
-def scroll_to_bottom(driver, scroll_pause_time=1.0):
-    """
-    Scrolls the web page till the end.
-    
-    Args:
-    driver: Selenium WebDriver.
-    scroll_pause_time: Time to wait for the page to load more contents.
-    """
-    # Get scroll height
-    last_height = driver.execute_script("return document.body.scrollHeight")
 
-    while True:
-        # Scroll down to the bottom of the page
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-        # Wait to load the page
-        time.sleep(scroll_pause_time)
+        
+        
+        
+import re
+import ast
 
-        # Calculate new scroll height and compare with last scroll height
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
-            # If heights are the same, it is likely that the bottom has been reached
-            break
-        last_height = new_height
+
+def extract_and_convert_dict(output_string):
+    print("My out put",output_string)
+    # Regex to extract the dictionary part
+    match = re.search(r"application_answers=(\{.*\})", output_string)
+    if match:
+        dict_string = match.group(1)
+        try:
+            # Safely convert string representation to dictionary
+            application_answers = ast.literal_eval(dict_string)
+            return application_answers;
+        except ValueError as e:
+            print(f"Error converting string to dictionary: {e}")
+            return {};
+    else:
+        print("No dictionary found in the output")
+        return {};
