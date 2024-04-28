@@ -21,3 +21,4 @@ class JobPostAnlyzerResponse(BaseModel):
             """
             The link for the applicaiton to apply for the job. 
             """)
+    

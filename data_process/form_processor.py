@@ -12,7 +12,7 @@ def clean_from(html_content):
     # Remove specific attributes from all tags
     essential_attributes = {
             'href', 'src', 'alt', 'type', 'value',
-            'placeholder', 'title', 'id', 'class' 
+            'placeholder', 'title', 'id', 
         }    
     essential_attributes.update({f'aria-{attr}' for attr in ['label', 'labelledby', 'hidden', 'live', 'controls', 'expanded', 'invalid']})
   # Remove all non-essential attributes from all elements
@@ -30,6 +30,10 @@ def clean_from(html_content):
     # remove_empty_divs(soup)
     # remove_divs_with_aria_hidden(soup)
 
+    remove_login_related_elements(soup,[
+    'Login', 'Log in', 'Logga in', 'Inloggning', 
+    'Sign in', 'Sign on', 'Anslut', 'Authentisera',
+    'Access account', 'Signup', 'Sign up', 'Skapa konto', 'Bli medlem', 'Anmäl dig'])
     
     remove_empty_list_items(soup)
     remove_empty_spans(soup)
@@ -50,7 +54,7 @@ def clean_from(html_content):
     remove_social_media_inputs(soup, ['facebook', 'linkedin'] )
     remove_checkboxes_by_keywords(soup, ['newsletter', 'updates', 'future_jobs'])
     remove_non_file_type_hidden_inputs(soup)
-    # remove_tags_containing_special_keywords(soup, [ 'Collection of personal data', 'personal data', 'privacy', 'Users rights', 'Already working', "Powered by", "Accept all", "Liknande yrken", "JOBBFÖRSLAG",])
+    remove_tags_containing_special_keywords(soup, [ 'Collection of personal data', 'personal data', 'privacy', 'Users rights', 'Already working', "Powered by", "Accept all", "Liknande yrken", "JOBBFÖRSLAG",])
     # Return the cleaned HTML as a string
     cleaned_html = str(soup)
     return cleaned_html

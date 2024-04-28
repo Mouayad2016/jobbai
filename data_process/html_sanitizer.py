@@ -165,7 +165,17 @@ def remove_elements_by_keywords(soup, keywords):
     # Find all elements with attributes containing the keyword
     for element in soup.find_all(lambda tag: any(re.search(keywords_regex, str(tag.get(attr)), re.IGNORECASE) for attr in ['id', 'class', 'name', 'data-role'] if tag.get(attr))):
         element.decompose()
-        
+def remove_placeholder_links(soup):
+    """
+    Removes <a> tags that have a href attribute set to "#" indicating a placeholder link.
+
+    Args:
+    soup: The BeautifulSoup object.
+    """
+    # Find all <a> tags with href attributes equal to "#"
+    for a_tag in soup.find_all('a', href="#"):
+        a_tag.decompose()  # Remove the <a> tag
+  
         
 def remove_links_by_keyword(soup, keywords):
     """
@@ -212,7 +222,23 @@ def remove_spans_keep_text(soup):
     spans = soup.find_all('span')
     for span in spans:
         span.unwrap()
-
+        
+def remove_br_keep_text(soup):
+    """
+    Removes all <span> tags from the BeautifulSoup object while keeping their contents.
+    """
+    spans = soup.find_all('br')
+    for span in spans:
+        span.unwrap()
+        
+def remove_b_keep_text(soup):
+    """
+    Removes all <span> tags from the BeautifulSoup object while keeping their contents.
+    """
+    tags = soup.find_all('b')
+    for b in tags:
+        b.decompose()
+        
 def remove_sections_keep_content(soup):
     """
     Removes all <section> tags from the BeautifulSoup object while keeping their contents.
@@ -506,3 +532,113 @@ def remove_non_file_type_hidden_inputs(soup):
     
     # Return the modified HTML
     return str(soup)
+
+
+def remove_login_related_elements(soup, keywords):
+    # Create a BeautifulSoup object from the HTML
+
+    # List of tag types that might contain login actions
+    tag_types = ['button', 'a', 'div']
+
+    # Iterate over each type of tag
+    for tag in tag_types:
+            # Find all elements of this tag type
+            elements = soup.find_all(tag)
+            for element in elements:
+                # Check if the text content of the element includes any of the keywords
+                element_text = element.get_text().lower()  # Get the lowercased text once to avoid repeated conversions
+                if any(keyword.lower() in element_text for keyword in keywords):
+                    # Remove the element if any keyword is found
+                    element.decompose()
+
+        # Return the modified HTML as a string
+    return str(soup)
+
+
+
+def find_submit_elements(html_content, keywords):
+    soup = BeautifulSoup(html_content, 'html.parser')
+    matched_elements = []
+    keywords = [keyword.lower() for keyword in keywords]
+
+    forms = soup.find_all('form')
+    for form in forms:
+        elements = form.find_all(['button', 'input'])
+        for element in elements:
+            text = element.text.lower() or (element.get('value') or "").lower()
+            if any(keyword in text for keyword in keywords):
+                if element.get('id'):
+                    matched_elements.append(f"#{element.get('id')}")
+                elif element.get('name'):
+                    matched_elements.append(f'input[name="{element.get('name')}"]')
+                else:
+                    # This will handle input types with a specific value attribute
+                    if element.get('value'):
+                        matched_elements.append(f'input[value="{element.get('value')}"]')
+    
+    return matched_elements
+
+
+def extract_select_elements(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    select_elements = soup.find_all('select')
+    return {select.get('id') or select.get('name'): select for select in select_elements if select.get('id') or select.get('name')}
+
+def find_new_selects(old_html, new_html):
+    old_selects = extract_select_elements(old_html)
+    new_selects = extract_select_elements(new_html)
+
+    # Identifying new selects by keys (id or name)
+    new_keys = set(new_selects.keys()) - set(old_selects.keys())
+    return bool(new_keys)
+
+
+def remove_non_human_text(soup):
+    """
+    Removes tags that contain non-human-readable placeholder text.
+
+    Args:
+    soup: The BeautifulSoup object.
+    """
+    # Regular expression to identify non-human-readable text
+    non_human_text_regex = re.compile(r'\[#.*?#\]')
+
+    # Find all tags that contain the specified non-human text
+    for tag in soup.find_all(text=non_human_text_regex):
+        if tag.parent:
+            tag.parent.decompose()  # Remove the entire tag containing the non-human text
+
+def remove_tech_jargon(soup):
+    """
+    Removes HTML elements that contain system-generated or technical text.
+
+    Args:
+    soup: The BeautifulSoup object.
+    """
+    # Define a regex pattern that matches typical system identifiers and tracking info
+    pattern = re.compile(
+        r'\b('
+        r'_+[a-zA-Z0-9]{2,}|'  # Match identifiers starting with one or more underscores followed by at least two alphanumeric characters
+        r'[a-zA-Z0-9]+_[a-zA-Z0-9]+|'  # Match strings with underscores in the middle (common in system identifiers)
+        r'\d+\s*(månader|dag(ar)?s?)\b|'  # Match numbers followed by space and 'månader' (months) or 'dag' (days) in Swedish, allow optional plural
+        r'HTTP|'  # Match HTTP
+        r'Pixel|'  # Match Pixel
+        r'Persistent|'  # Match Persistent
+        r'IDB|'  # Match IDB
+        r'Persistent:|'  # Include a colon if it frequently follows the word "Persistent"
+        r'\bväntande\b|'  # Swedish for 'pending', often used in cookies and tracking
+        r'\b[Vv][\d\.]+|'  # Match version numbers, e.g., V2, v1.5
+        r'UUID|'  # Match UUID, a common format for identifiers
+        r'[a-zA-Z]+Id\b|'  # Match any word ending with 'Id'
+        r'[a-zA-Z]*[Cc]ookie|'  # Match words that contain 'cookie'
+        r'[a-zA-Z]*[Tt]oken|'  # Match words that contain 'token'
+        r'[a-zA-Z]*[Aa]nalytics|'  # Match words that contain 'analytics'
+        r'[a-zA-Z]*[Ll]og(s)?'  # Match words that contain 'log' or 'logs'
+        r')\b',
+        re.IGNORECASE
+    )
+    # Iterate over all tags and examine their text content
+    for tag in soup.find_all():
+        if tag.string and pattern.search(tag.string):
+            # If the tag's string matches the pattern, decompose the tag
+            tag.decompose()

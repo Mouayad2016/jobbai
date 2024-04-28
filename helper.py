@@ -5,6 +5,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from selenium.common.exceptions import TimeoutException
 import time
+import re
+import ast
+from data_process.html_sanitizer import extract_forms
+from data_process.form_processor import clean_from
+from data_process.html_processor import clean_html
+
+from data_process.html_sanitizer import handle_embedded_html_in_iframe
+
 
 def adScrapper(url):
     driver = webdriver.Chrome()
@@ -62,12 +70,9 @@ def adScrapper(url):
         
         
         
-import re
-import ast
 
 
 def extract_and_convert_dict(output_string):
-    print("My out put",output_string)
     # Regex to extract the dictionary part
     match = re.search(r"application_answers=(\{.*\})", output_string)
     if match:
@@ -82,3 +87,54 @@ def extract_and_convert_dict(output_string):
     else:
         print("No dictionary found in the output")
         return {};
+
+
+def fetch_page_body(driver):
+    """ Fetch the HTML content of the page. """
+    return driver.find_element(By.CSS_SELECTOR, "body").get_attribute('innerHTML')
+
+
+
+def process_form(html_content):
+    """ Extract and process form from HTML content. """
+    extracted_form = extract_forms(html_content);
+    cleaned_form = clean_from(extracted_form)
+    return cleaned_form
+
+
+
+def join_full_body_with_embdded_html(body_content, iframe_html_contents):
+    for iframe_html in iframe_html_contents:
+        body_content += iframe_html  # Append each iframe's HTML to the main body content
+    return body_content
+    
+from selenium_driver.driver_interactor import *
+
+def wait_for_page_load(driver):
+    if wait_for_document_complete(driver):
+        # Check if Angular is ready
+        if wait_for_angular_ready(driver):
+            # Perform the scrolling
+            scroll_to_bottom(driver)
+        else:
+            print("Angular did not finish loading.")
+    else:
+        print("Document did not finish loading.")
+
+    time.sleep(3)
+    
+    
+def html_form_processing_workflow(driver):
+    iframe_html_contents = handle_embedded_html_in_iframe(driver)
+    body_content = fetch_page_body(driver)
+    full_content = join_full_body_with_embdded_html(body_content, iframe_html_contents)
+    processed_form = process_form(full_content)
+    return processed_form;
+
+
+def html_body_processing_workflow(driver):
+    iframe_html_contents = handle_embedded_html_in_iframe(driver)
+    body_content = fetch_page_body(driver)
+    full_content = join_full_body_with_embdded_html(body_content, iframe_html_contents)
+    processed_body = clean_html(full_content)
+    return processed_body;

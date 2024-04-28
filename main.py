@@ -1,28 +1,27 @@
 from httpcore import TimeoutException
 from job_scrapper import doScaping
-from helper import adScrapper, extract_and_convert_dict
 from selenium_driver.driver_interactor import *
-from data_process.html_sanitizer import handle_embedded_html_in_iframe
 from ai.agents.job_post_analyzer.agent import analyize;
 from ai.agents.email_writer.agent import generate_email;
-from ai.agents.website_analyzer.agent import web_analize;
-from ai.agents.web_form_answerer.pydantic.agent import web_form_answerer
+from ai.agents.website_analyzer.pydantic.agent import web_analize;
 from ai.agents.determine_file_upload.pydantic.agent import determin_file_upload
 import ast
+from helper import wait_for_page_load, html_form_processing_workflow, html_body_processing_workflow
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import Select
 
 from data_process.html_processor import clean_html
-from data_process.form_processor import clean_from
+
+
 import json
-from data_process.html_sanitizer import extract_forms
 
-from automation.form_automation import fill_form
 
-from automation.form_automation import find_file_inputs, handle_cookie_popups,click_cookie_accept_buttons
+from automation.form_automation import find_file_inputs, handle_cookie_popups,click_cookie_accept_buttons, fill_form,click_elements_by_selectors
+from work_flow import *
+
 # url = "https://arbetsformedlingen.se/platsbanken/annonser/28730687" # This is a mail link
-url = "https://www.randstad.se/mitt-randstad/ansok/d242f1e7-fe46-4e57-8cd5-e759dd2e72c3/" # This is a mail link
+url = "https://epidemic-sound.teamtailor.com/jobs/3545361-senior-fullstack-engineer?promotion=909809-arbetsformedlingen" # This is a mail link
 
 # jobs= doScaping(url)
 # for job in jobs:
@@ -70,56 +69,55 @@ url = "https://www.randstad.se/mitt-randstad/ansok/d242f1e7-fe46-4e57-8cd5-e759d
 
 
 driver = create_selenium_driver()
-driver.get("https://team.nytida.se/jobs/3656333-timvikarier-till-varnhem-s-a-norlings-gruppboende-lss?promotion=930622-arbetsformedlingen")
+
+# * Apply button 
+exmple_1_url= "https://www.jobseurope.io/jobs/Recruiter-with-English-(mfd)+4160" 
+
+# * Apply link
+apply_link_exmple_1_url= "https://www.jobseurope.io/jobs/Kundenbetreuung-im-Bereich-Telekommunikation-(mwd)+5500" 
+apply_link_exmple_2_url= "https://vwr.wd1.myworkdayjobs.com/en-US/avantorJobs/job/Mlndal-SWE/Research-Technician-Imaging--M-F-D-_R-156727-1?source=Governmental_Labour_Agency" 
+apply_link_exmple_3_url= "https://jobb.bravura.se/lediga-jobb/fullstackutvecklare-till-ciko-4918001/" 
+apply_link_exmple_4_url= "https://web103.reachmee.com/ext/I021/1690/job?site=7&lang=UK&validator=9c16162aeec1b1c78db51d0c3e4163a1&ref=https%3A%2F%2Farbetsformedlingen.se%2Fplatsbanken%2F&job_id=109&utm_medium=talentech_publishing&utm_source=platsbanken" 
+
+# * Ready form 
+form_exmple_1_url= "https://jobs.gigstep.se/jobs/4083469-fullstackutvecklare-se-hit?promotion=992424-arbetsformedlingen" 
+form_exmple_2_url= "https://jobs.cruitive.com/job/cluthrxmf00w2s60ozvpj6g4y/apply" 
+form_exmple_2_url= "https://emp.jobylon.com/applications/jobs/231995/create/?utm_source=ams&utm_medium=promotionserializer" 
+
+# * Log in page 
+log_in_exmple_1_url= "https://www.jobseurope.io/jobs/Recruiter-with-English-(mfd)+4160" 
+log_in_exmple_2_url= "https://arbetsformedlingen.varbi.com/what:job/jobID:713502/type:job/where:1/apply:1" 
+
+
+driver.get(apply_link_exmple_3_url)
+# driver.get("https://team.nytida.se/jobs/3656333-timvikarier-till-varnhem-s-a-norlings-gruppboende-lss?promotion=930622-arbetsformedlingen")
 # wait_for_angular_ready(driver)
 # wait_for_document_complete(driver)
 # scroll_to_bottom(driver)
 
-if wait_for_document_complete(driver):
-    # Check if Angular is ready
-    if wait_for_angular_ready(driver):
-        # Perform the scrolling
-        scroll_to_bottom(driver)
-    else:
-        print("Angular did not finish loading.")
-else:
-    print("Document did not finish loading.")
-wait_for_lazy_loaded_elements(driver, "loading", "lazy")
 
-# handle_cookie_popups(driver)
+
+    # wait_for_lazy_loaded_elements(driver, "loading", "lazy")
+
+wait_for_page_load(driver)
 click_cookie_accept_buttons(driver)
 
-iframe_html_contents = handle_embedded_html_in_iframe(driver)
-
-# # Fetch main page body content
-body_content = driver.find_element(By.CSS_SELECTOR, "body").get_attribute('innerHTML')
-
-# # Combine main body content with iframe contents
-full_content = body_content
-for iframe_html in iframe_html_contents:
-    full_content += iframe_html  # Append each iframe's HTML to the main body content
 
 
 
-# result = web_analize(cleaned_links_html+cleaned_input_fields_html)
-# print(result);
 
-# print(body_content)
+process_html_body = html_body_processing_workflow(driver)
 
-# def clean_html_and_save(html_content, output_file):
-#     """Clean the HTML content and save it to a local HTML file."""
-#     cleaned_html = clean_html(html_content)
-#     with open(output_file, 'w', encoding='utf-8') as file:
-#         file.write(cleaned_html)
-#     return cleaned_html
+with open("html_form.html", 'w', encoding='utf-8') as file:
+    file.write(str(process_html_body))
+    
+# for i in range(100):
 
-# output_file = "cleaned_html_output.html"
-# print(body_content)
-# processed_html_body = clean_html_and_save(full_content, output_file)
-# result = web_analize(processed_html_body)  # type: ignore
+#     result = web_analize(process_html_body)  # type: ignore
+#     driver.quit()
+#     print(result)
 
-
-
+# processed_form = html_form_processing_workflow(driver)
 
 # result_to_json_string = json.dumps(result)
 # result_to_json = json.loads(result_to_json_string)
@@ -127,15 +125,19 @@ for iframe_html in iframe_html_contents:
 # # print(result_to_json) # type: ignore
 # if result['is_application_form']:
 
-extracted_form = extract_forms(full_content)
-processed_form = clean_from(extracted_form)
-with open("html_form.html", 'w', encoding='utf-8') as file:
-    file.write(str(processed_form))
-    is_file_inputs =  find_file_inputs(processed_form)
-    form_answers = web_form_answerer(processed_form)
-    extracted_dict = extract_and_convert_dict(str(form_answers))
-    fill_form(driver, extracted_dict)
-    time.sleep(300)
+
+
+
+# with open("html_form.html", 'w', encoding='utf-8') as file:
+#     file.write(str(processed_form))
+    
+# is_file_inputs =  find_file_inputs(processed_form)
+
+# if is_file_inputs: 
+#     from_ready_and_contain_inputs_with_file_inputs(driver, processed_form);
+
+
+
     # how_to_file_upload= determin_file_upload(processed_form)
     # form_answers = web_form_answerer(processed_form)
     # print(how_to_file_upload)
@@ -144,6 +146,5 @@ with open("html_form.html", 'w', encoding='utf-8') as file:
 # fill_form(driver, application_answers)
             
 # time.sleep(300)
-driver.quit()
 
-application_answers={'boolean-4217160-true': 'random', 'boolean-4217180-true': 'random', 'boolean-4217200-true': 'random', 'boolean-4217220-true': 'random', 'boolean-4217240-true': 'random', 'boolean-4217260-true': 'random', 'candidate_answers_attributes_6_text': 'random', 'candidate_first_name': 'Mouayad', 'candidate_last_name': 'Mouayad', 'candidate_email': 'mouayad1998@hotmail.com', 'candidate_phone': '+46 733 524 957', 'candidate_resume_remote_url': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_file_remote_url': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_job_applications_attributes_0_cover_letter': '/Users/mouayadmouayad/Desktop/jobbAI/ai/agents/web_form_answerer/pydantic/Arbetsgivarintyg.pdf', 'candidate_consent_given': 'checkbox', 'candidate_consent_given_future_jobs': 'checkbox', 'submit': 'submit'}
+

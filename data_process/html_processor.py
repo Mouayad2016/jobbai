@@ -26,33 +26,38 @@ def clean_html(html_content):
 
 
     # Extract important divs and remove empty ones
-    important_soup = soup
     # extract_important_divs(soup)
-    remove_header_and_footer(important_soup)
+    remove_header_and_footer(soup)
 
-    # remove_empty_divs(important_soup)
-    remove_divs_with_aria_hidden(important_soup)
+    # remove_empty_divs(soup)
+    remove_divs_with_aria_hidden(soup)
 
     
-    remove_empty_list_items(important_soup)
-    remove_empty_spans(important_soup)
-    remove_empty_sections(important_soup)
-    remove_noscript_tags(important_soup)
+    remove_empty_list_items(soup)
+    remove_empty_spans(soup)
+    remove_empty_sections(soup)
+    remove_noscript_tags(soup)
     remove_elements_with_country_codes(soup,tags=('li', 'button'))
     remove_elements_with_long_text(soup, 200)
-    remove_elements_by_keywords(soup, ['cookie', 'privacy', 'consent'])
+    remove_elements_by_keywords(soup, ['cookie', 'privacy', 'consent','cookie-policy', 'privacy','inställningar','statistik', 'marknadsföring''.gif','samtycke','information','om','nödvändig' ,'session','HTML'])
+    remove_empty_tags_exclusions(soup)
+
     remove_tags_with_type_hidden(soup)
-    remove_links_by_keyword(soup, ['cookie-policy', 'privacy'])
+    remove_links_by_keyword(soup, ['cookie-policy', 'privacy',"facebook", "twitter"])
+    remove_placeholder_links(soup)
     remove_empty_tags_exclusions(soup)
     remove_html_comments(soup)
     
-    
-    remove_divs_keep_children(important_soup)
-    remove_spans_keep_text(important_soup)
-    remove_sections_keep_content(important_soup)
-    remove_tags_keep_content(important_soup, ['ppc-container', "ppc-content", "figure"])
+    remove_non_human_text(soup)
+    remove_tech_jargon(soup)
+    remove_divs_keep_children(soup)
+    remove_spans_keep_text(soup)
+    remove_br_keep_text(soup)
+    remove_b_keep_text(soup)
+    remove_sections_keep_content(soup)
+    remove_tags_keep_content(soup, ['ppc-container', "ppc-content", "figure"])
     # Flatten redundant divs in the important soup
-    # flatten_divs(important_soup)
+    # flatten_divs(soup)
     
     remove_tags_containing_special_keywords(soup, [ 'Collection of personal data', 'personal data', 'privacy', 'Users rights', 'Already working', "About the team", "Powered by", "Accept all", "Liknande yrken", "JOBBFÖRSLAG",])
 

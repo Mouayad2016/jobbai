@@ -1,5 +1,5 @@
 from langchain_openai import ChatOpenAI
-from ...tool import get_word_length
+from ....tool import get_word_length
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from dotenv import load_dotenv
 import os
@@ -8,7 +8,7 @@ from .schema.web_anlyzer import JobPostAnlyzerResponse
 load_dotenv()
 api_key = os.getenv('OPENAI_API_KEY')
 
-llm = ChatOpenAI(model="gpt-4-turbo", temperature=0.2, api_key= api_key) # type: ignore
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2, api_key= api_key) # type: ignore
 
 tools = [JobPostAnlyzerResponse]
 
